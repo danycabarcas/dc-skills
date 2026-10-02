@@ -1,0 +1,10 @@
+{
+  "title": "Filament",
+  "category": "framework",
+  "requires": ["laravel", "tailwind"],
+  "detect": {
+    "files": ["app/Filament/", "app/Providers/Filament/"],
+    "composer": ["filament/*"],
+    "keywords": ["filament", "panel admin", "panel administrativo", "admin panel", "backoffice", "dashboard admin"]
+  }
+}

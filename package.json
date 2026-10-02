@@ -1,0 +1,37 @@
+{
+  "name": "dc-skills",
+  "version": "0.1.0",
+  "description": "DAYTECHCO SKILLS: catálogo de skills para agentes de IA (Claude, Gemini, Codex, Kimi...), instalador por proyecto, orquestador y memoria compartida en SQLite.",
+  "type": "module",
+  "bin": {
+    "dc-skills": "bin/dc-skills.js",
+    "dcs": "bin/dc-skills.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "skills",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danycabarcas/dc-skills.git"
+  },
+  "keywords": [
+    "agent-skills",
+    "claude-code",
+    "agents-md",
+    "mcp",
+    "laravel",
+    "filament",
+    "nextjs"
+  ],
+  "author": "Daniel Cabarcas",
+  "license": "MIT"
+}

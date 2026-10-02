@@ -1,0 +1,10 @@
+{
+  "title": "Angular",
+  "category": "framework",
+  "requires": [],
+  "detect": {
+    "files": ["angular.json"],
+    "npm": ["@angular/core", "angular"],
+    "keywords": ["angular", "angularjs", "angular.js", "rxjs", "signals angular"]
+  }
+}

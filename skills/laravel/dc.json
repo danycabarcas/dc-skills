@@ -1,0 +1,10 @@
+{
+  "title": "Laravel",
+  "category": "framework",
+  "requires": ["php"],
+  "detect": {
+    "files": ["artisan"],
+    "composer": ["laravel/framework"],
+    "keywords": ["laravel", "eloquent", "artisan", "blade", "livewire", "inertia", "sanctum"]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "title": "PHP",
+  "category": "language",
+  "requires": [],
+  "detect": {
+    "files": ["composer.json", "*.php"],
+    "composer": ["php"],
+    "keywords": ["php", "composer", "pdo", "phpunit", "pest"]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "title": "CSS",
+  "category": "styles",
+  "requires": [],
+  "detect": {
+    "files": ["*.css", "*.scss", "*.sass"],
+    "npm": ["sass", "postcss"],
+    "keywords": ["css", "scss", "sass", "estilos", "responsive", "maquetacion", "diseño"]
+  }
+}

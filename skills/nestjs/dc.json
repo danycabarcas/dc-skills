@@ -1,0 +1,10 @@
+{
+  "title": "NestJS",
+  "category": "framework",
+  "requires": ["nodejs"],
+  "detect": {
+    "files": ["nest-cli.json"],
+    "npm": ["@nestjs/core"],
+    "keywords": ["nest", "nestjs", "nest.js", "microservicios", "api nest"]
+  }
+}

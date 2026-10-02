@@ -1,0 +1,9 @@
+{
+  "title": "HTML",
+  "category": "frontend",
+  "requires": [],
+  "detect": {
+    "files": ["*.html", "*.htm", "index.html"],
+    "keywords": ["html", "landing", "landing page", "pagina web", "sitio web", "web estatica", "maquetacion", "seo", "accesibilidad"]
+  }
+}

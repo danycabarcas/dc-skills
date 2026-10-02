@@ -1,0 +1,10 @@
+{
+  "title": "Tailwind CSS",
+  "category": "styles",
+  "requires": ["css"],
+  "detect": {
+    "files": ["tailwind.config.js", "tailwind.config.ts", "tailwind.config.cjs"],
+    "npm": ["tailwindcss", "@tailwindcss/*"],
+    "keywords": ["tailwind", "tailwindcss", "utility css", "shadcn"]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Node.js",
+  "category": "language",
+  "requires": [],
+  "detect": {
+    "files": [".nvmrc", "server.js", "server.ts"],
+    "npm": ["express", "fastify", "koa", "hono", "@nestjs/core", "@types/node", "tsx", "nodemon"],
+    "keywords": ["node", "nodejs", "node.js", "express", "fastify", "api rest", "backend js", "typescript backend", "cli"]
+  }
+}

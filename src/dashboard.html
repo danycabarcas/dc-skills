@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DC Skills · Memoria</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --panel: #ffffff; --text: #16181d; --muted: #6b7280; --line: #e5e7eb;
+    --accent: #2563eb; --accent-soft: #e8efff; --danger: #dc2626; --chip: #f1f5f9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115; --panel: #171a21; --text: #e6e8ee; --muted: #8b93a7; --line: #262b36;
+      --accent: #6b9bff; --accent-soft: #1b2540; --danger: #f87171; --chip: #20242e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; background: var(--panel); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 1; flex-wrap: wrap; }
+  header h1 { font-size: 16px; margin: 0; letter-spacing: .02em; }
+  header .ver { color: var(--muted); font-size: 12px; }
+  header .spacer { flex: 1; }
+  button, select, input { font: inherit; color: inherit; }
+  button { border: 1px solid var(--line); background: var(--panel); padding: 6px 12px; border-radius: 8px; cursor: pointer; }
+  button:hover { border-color: var(--accent); }
+  button.danger { color: var(--danger); border-color: var(--danger); }
+  main { max-width: 1100px; margin: 0 auto; padding: 20px 16px 40px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 18px; }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .stat b { display: block; font-size: 22px; }
+  .stat span { color: var(--muted); font-size: 12px; }
+  .toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .tabs { display: flex; gap: 4px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 3px; }
+  .tabs button { border: 0; background: transparent; }
+  .tabs button.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  select, input { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; min-width: 0; }
+  input[type=search] { flex: 1; min-width: 180px; }
+  .list { display: grid; gap: 8px; }
+  .item { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
+  .meta { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+  .chip { background: var(--chip); border-radius: 999px; padding: 1px 8px; }
+  .chip.kind { background: var(--accent-soft); color: var(--accent); }
+  .item p { margin: 0; white-space: pre-wrap; word-break: break-word; }
+  .item .del { margin-left: auto; font-size: 12px; padding: 2px 8px; }
+  .empty, .off { text-align: center; color: var(--muted); padding: 40px 0; }
+  .off h2 { color: var(--text); }
+</style>
+</head>
+<body>
+<header>
+  <h1>DC SKILLS · Memoria y logs</h1><span class="ver">v{{version}}</span>
+  <span class="spacer"></span>
+  <button id="refresh">Actualizar</button>
+  <button id="shutdown" class="danger">Apagar servidor</button>
+</header>
+<main id="app">
+  <section class="stats" id="stats"></section>
+  <div class="toolbar">
+    <div class="tabs" role="tablist">
+      <button data-tab="memories" class="active">Memoria</button>
+      <button data-tab="events">Logs</button>
+      <button data-tab="requests">Skills pedidos</button>
+    </div>
+    <select id="project"><option value="">Todos los proyectos</option></select>
+    <input type="search" id="q" placeholder="Buscar en memoria…">
+  </div>
+  <section class="list" id="list"></section>
+</main>
+<script>
+const $ = (s) => document.querySelector(s);
+const state = { tab: 'memories', project: '', q: '' };
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+const when = (iso) => new Date(iso).toLocaleString();
+const api = async (path, opts = {}) => {
+  const res = await fetch(path, { ...opts, headers: { 'X-DC-Skills': '1', ...(opts.headers || {}) } });
+  if (!res.ok) throw new Error((await res.json()).error || res.statusText);
+  return res.json();
+};
+
+async function loadStats() {
+  const s = await api('/api/stats');
+  $('#stats').innerHTML = [
+    [s.memories, 'memorias'], [s.events, 'eventos'], [s.projects, 'proyectos con memoria'], [s.pendingRequests, 'skills pedidos'],
+  ].map(([n, label]) => `<div class="stat"><b>${n}</b><span>${label}</span></div>`).join('');
+  $('#stats').title = s.dbPath;
+}
+
+async function loadProjects() {
+  const rows = await api('/api/projects');
+  const sel = $('#project');
+  sel.innerHTML = '<option value="">Todos los proyectos</option>' +
+    rows.map((p) => `<option value="${esc(p.project)}">${esc(p.project_name || p.project)} (${p.memories}·${p.events})</option>`).join('');
+  sel.value = state.project;
+}
+
+function render(rows, renderRow) {
+  $('#list').innerHTML = rows.length ? rows.map(renderRow).join('') : '<div class="empty">Sin registros todavía.</div>';
+}
+
+async function loadList() {
+  const params = new URLSearchParams({ project: state.project, q: state.q });
+  $('#q').hidden = state.tab !== 'memories';
+  if (state.tab === 'memories') {
+    render(await api('/api/memories?' + params), (m) => `
+      <article class="item"><div class="meta">
+        <span class="chip kind">${esc(m.kind)}</span><span class="chip">${esc(m.agent)}</span>
+        <span>${esc(m.project_name || 'global')}</span><span>${when(m.created_at)}</span><span>#${m.id}</span>
+        ${m.tags ? `<span>[${esc(m.tags)}]</span>` : ''}
+        <button class="del" data-id="${m.id}">Borrar</button>
+      </div><p>${esc(m.content)}</p></article>`);
+  } else if (state.tab === 'events') {
+    render(await api('/api/events?' + params), (e) => `
+      <article class="item"><div class="meta">
+        <span class="chip kind">${esc(e.type)}</span><span class="chip">${esc(e.agent)}</span>
+        <span>${esc(e.project_name || '')}</span><span>${when(e.created_at)}</span>
+      </div><p>${esc(e.message)}</p></article>`);
+  } else {
+    render(await api('/api/requests'), (r) => `
+      <article class="item"><div class="meta">
+        <span class="chip kind">${esc(r.status)}</span><span class="chip">${esc(r.agent || '')}</span><span>${when(r.created_at)}</span>
+      </div><p><b>${esc(r.name)}</b> ${esc(r.reason || '')}</p></article>`);
+  }
+}
+
+const refresh = () => Promise.all([loadStats(), loadProjects(), loadList()]).catch((err) => alert(err.message));
+
+document.querySelectorAll('[data-tab]').forEach((btn) => btn.addEventListener('click', () => {
+  document.querySelectorAll('[data-tab]').forEach((b) => b.classList.toggle('active', b === btn));
+  state.tab = btn.dataset.tab;
+  loadList();
+}));
+$('#project').addEventListener('change', (e) => { state.project = e.target.value; loadList(); });
+let timer;
+$('#q').addEventListener('input', (e) => { clearTimeout(timer); timer = setTimeout(() => { state.q = e.target.value.trim(); loadList(); }, 250); });
+$('#refresh').addEventListener('click', refresh);
+$('#list').addEventListener('click', async (e) => {
+  const id = e.target.dataset?.id;
+  if (!id || !confirm(`¿Borrar la memoria #${id}?`)) return;
+  await api(`/api/memories/${id}`, { method: 'DELETE' });
+  refresh();
+});
+$('#shutdown').addEventListener('click', async () => {
+  if (!confirm('¿Apagar el servidor del dashboard?')) return;
+  await api('/api/shutdown', { method: 'POST' }).catch(() => {});
+  $('#app').innerHTML = '<div class="off"><h2>Servidor apagado</h2><p>Puedes cerrar esta pestaña. Vuelve a abrirlo con <code>dc-skills serve --open</code>.</p></div>';
+  $('#refresh').disabled = $('#shutdown').disabled = true;
+});
+refresh();
+</script>
+</body>
+</html>

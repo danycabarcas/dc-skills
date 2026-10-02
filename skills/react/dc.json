@@ -1,0 +1,10 @@
+{
+  "title": "React",
+  "category": "frontend",
+  "requires": [],
+  "detect": {
+    "files": ["*.jsx", "*.tsx"],
+    "npm": ["react", "react-dom"],
+    "keywords": ["react", "reactjs", "react.js", "jsx", "tsx", "inertia react", "spa", "vite react"]
+  }
+}

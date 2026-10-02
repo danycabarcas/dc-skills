@@ -1,0 +1,10 @@
+{
+  "title": "Next.js",
+  "category": "framework",
+  "requires": ["react"],
+  "detect": {
+    "files": ["next.config.js", "next.config.mjs", "next.config.ts"],
+    "npm": ["next"],
+    "keywords": ["next", "nextjs", "next.js", "app router", "server actions", "vercel", "ssr"]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Skill Creator",
+  "category": "meta",
+  "requires": [],
+  "detect": {
+    "keywords": ["skill", "skills", "crear skill", "nuevo skill"]
+  }
+}

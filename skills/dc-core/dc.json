@@ -1,0 +1,7 @@
+{
+  "title": "DC Core",
+  "category": "meta",
+  "always": true,
+  "requires": [],
+  "detect": {}
+}
