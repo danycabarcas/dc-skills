@@ -17,7 +17,7 @@ Reglas que aplican a **todo** proyecto, sin importar el stack. Los skills de tec
 3. Lee los `SKILL.md` de las tecnologías que vas a tocar. No los leas todos si no hacen falta.
 
 ## 2. Memoria compartida (todos los agentes escriben aquí)
-Identifícate siempre con `--agent <claude|gemini|codex|kimi|...>` o la variable `DC_AGENT`.
+Identifícate siempre con `--agent <nombre-del-agente>` (p. ej. `claude`) o la variable `DC_AGENT`.
 
 | Cuándo | Comando |
 |---|---|

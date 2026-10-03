@@ -79,7 +79,7 @@
     ]
   },
   "mapas": {
-    "description": "Visores geográficos con Leaflet y datos espaciales en la base de datos",
+    "description": "Visores geográficos con Leaflet (Laravel, Angular, Vue, React) y datos espaciales en la base de datos",
     "skills": [
       "leaflet",
       "javascript",
@@ -92,6 +92,45 @@
       "react",
       "vercel-react-best-practices",
       "vercel-composition-patterns"
+    ]
+  },
+  "equipo-angular": {
+    "description": "Frontend Angular del equipo: Angular moderno, Angular Material, PrimeNG (con aviso de licencia), JavaScript, Tailwind, dashboards y calidad",
+    "skills": [
+      "angular",
+      "angular-material",
+      "primeng",
+      "javascript",
+      "tailwind",
+      "dashboards",
+      "test-driven-development",
+      "webapp-testing",
+      "code-review-and-quality"
+    ]
+  },
+  "equipo-vue": {
+    "description": "Frontend Vue/Nuxt del equipo: Vue 3, JavaScript, Tailwind, dashboards, mapas y calidad",
+    "skills": [
+      "vue",
+      "javascript",
+      "tailwind",
+      "dashboards",
+      "test-driven-development",
+      "webapp-testing",
+      "code-review-and-quality"
+    ]
+  },
+  "api-node": {
+    "description": "Backends en Node.js/NestJS: APIs, bases de datos, seguridad, pruebas y observabilidad",
+    "skills": [
+      "nodejs",
+      "nestjs",
+      "api-and-interface-design",
+      "bases-de-datos",
+      "security-and-hardening",
+      "test-driven-development",
+      "observability-and-instrumentation",
+      "systematic-debugging"
     ]
   },
   "gobernacion-laravel": {

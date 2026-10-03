@@ -1,5 +1,5 @@
 // Shared memory for every agent, stored in one SQLite file (~/.dc-skills/memory.db).
-// WAL mode + busy_timeout let several agents (Claude, Gemini, ...) write at the same time.
+// WAL mode + busy_timeout let several agents/processes write at the same time.
 import fs from 'node:fs';
 import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';

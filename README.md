@@ -1,6 +1,6 @@
 # DC Skills · DAYTECHCO
 
-Skills para agentes de IA de desarrollo (Claude Code, Gemini CLI, Codex, Kimi, Cursor...) +
+Skills para agentes de IA de desarrollo (probado con **Claude Code**; usa los estándares abiertos AGENTS.md, Agent Skills y MCP) +
 un instalador por proyecto + memoria compartida entre agentes. Sin dependencias: solo Node.js.
 
 ```
@@ -95,7 +95,7 @@ registro guarda proyecto, agente, tipo (`decision`, `convention`, `bug`, `todo`,
 Las memorias con `--global` aplican a todos tus proyectos (preferencias personales).
 
 **Por CLI** (funciona con cualquier agente que pueda ejecutar comandos; el protocolo está en
-AGENTS.md): `dc-skills mem add "..." --agent gemini --kind decision`.
+AGENTS.md): `dc-skills mem add "..." --agent <nombre-del-agente> --kind decision`.
 
 **Por MCP** (más natural para el agente):
 ```sh
@@ -103,7 +103,7 @@ AGENTS.md): `dc-skills mem add "..." --agent gemini --kind decision`.
 claude mcp add dc-skills --scope user -- cmd /c dc-skills mcp      # Windows
 claude mcp add dc-skills --scope user -- dc-skills mcp             # Linux/macOS
 ```
-Gemini CLI (`~/.gemini/settings.json`), Codex (`~/.codex/config.toml`), Kimi, Cursor: registra un
+**Otros agentes (sin probar todavía):** si tu agente soporta MCP, registra un
 servidor MCP stdio con comando `dc-skills` y argumento `mcp`. El nombre del agente se toma del
 cliente MCP automáticamente.
 
@@ -155,6 +155,9 @@ también los ve en `agent-start` y puede proponerlos.
 | `dashboards` | dashboards y gráficos con librerías libres, KPIs, color, validación de datos |
 | `mapas` | Leaflet + JavaScript + datos espaciales |
 | `react-moderno` | React/Next.js con las guías de Vercel |
+| `equipo-angular` | Angular + Angular Material + PrimeNG + dashboards + calidad |
+| `equipo-vue` | Vue/Nuxt + Tailwind + dashboards + calidad |
+| `api-node` | Node.js/NestJS + APIs + bases de datos + seguridad + pruebas |
 | `gobernacion-laravel` | Laravel + Filament + marca de la Gobernación del Magdalena |
 | `ia` | servidores MCP y API de Claude |
 

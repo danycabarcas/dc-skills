@@ -1,5 +1,5 @@
 // Minimal MCP server over stdio (newline-delimited JSON-RPC 2.0), no SDK needed.
-// Gives any MCP-capable agent (Claude Code, Gemini CLI, Codex, Kimi, Cursor...) native tools
+// Gives any MCP-capable agent (tested with Claude Code) native tools
 // for the shared memory and the skills catalog of the project it was launched in.
 import readline from 'node:readline';
 import { PKG } from './paths.js';

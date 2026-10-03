@@ -1,0 +1,10 @@
+{
+  "title": "Vue",
+  "category": "framework",
+  "requires": [],
+  "detect": {
+    "files": ["*.vue", "nuxt.config.ts", "nuxt.config.js"],
+    "npm": ["vue", "nuxt", "pinia", "vue-router", "vuetify", "primevue"],
+    "keywords": ["vue", "vuejs", "vue.js", "vue 3", "nuxt", "pinia", "vuetify", "primevue"]
+  }
+}

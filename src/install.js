@@ -8,7 +8,7 @@ export const MANIFEST_FILE = 'dc-skills.json';
 /**
  * Folders each installed skill is copied into:
  *  - .claude/skills → Claude Code loads them natively as Agent Skills.
- *  - .agents/skills → cross-agent convention (Codex, Gemini, Kimi, Cursor...) and the
+ *  - .agents/skills → cross-agent convention used by other AGENTS.md-aware tools, and the
  *                     path referenced from AGENTS.md.
  */
 export const DEFAULT_TARGETS = ['.claude/skills', '.agents/skills'];
@@ -155,7 +155,7 @@ function buildBlock(manifest, catalog) {
     '',
     '> Bloque gestionado por `dc-skills` (no lo edites a mano; usa `dc-skills add/remove`).',
     '',
-    '**Protocolo para cualquier agente (Claude, Gemini, Codex, Kimi, ...):**',
+    '**Protocolo para cualquier agente de IA que trabaje en este proyecto:**',
     '',
     '1. Al iniciar la sesión ejecuta `dc-skills agent-start` y sigue lo que indique (estado, skills, memoria reciente).',
     '2. Antes de escribir código de una tecnología, lee su `SKILL.md` de la tabla de abajo.',

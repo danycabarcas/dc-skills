@@ -1,7 +1,7 @@
 {
   "name": "dc-skills",
   "version": "0.1.0",
-  "description": "DAYTECHCO SKILLS: catálogo de skills para agentes de IA (Claude, Gemini, Codex, Kimi...), instalador por proyecto, orquestador y memoria compartida en SQLite.",
+  "description": "DAYTECHCO SKILLS: catálogo de skills para agentes de IA (probado con Claude Code; estándares AGENTS.md, Agent Skills y MCP), instalador por proyecto, orquestador y memoria compartida en SQLite.",
   "type": "module",
   "bin": {
     "dc-skills": "bin/dc-skills.js",

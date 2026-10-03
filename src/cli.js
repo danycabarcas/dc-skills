@@ -47,7 +47,7 @@ ${c.bold('Memoria compartida')} ${c.dim('(todas usan --agent <nombre> o la varia
 
 ${c.bold('Servicios')}
   dc-skills serve [--port 47821] [--open]   Dashboard local de memoria y logs (botón para apagar)
-  dc-skills mcp                              Servidor MCP (stdio) para Claude/Gemini/Codex/Kimi
+  dc-skills mcp                              Servidor MCP (stdio) para agentes compatibles con MCP
 
 ${c.bold('Mantenimiento')}
   dc-skills doctor               Diagnóstico de instalación

@@ -156,3 +156,5 @@ un componente propio.
 ## PrimeVue
 Mismo sistema de temas (presets `@primeuix/themes`, `definePreset`) y los mismos nombres de componentes
 (`Select`, `DatePicker`, `DataTable`...). Configuración: `app.use(PrimeVue, { theme: { preset } })`.
+**Licencia:** PrimeVue ≤ 4.x es MIT (última 4.5.5); **PrimeVue 5+ (julio 2026) es comercial con clave**,
+igual que PrimeNG 22. Mismas reglas: no actualizar sin licencia confirmada. Ver skill `vue`.
