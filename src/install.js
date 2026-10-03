@@ -182,11 +182,21 @@ function buildBlock(manifest, catalog) {
 }
 
 /**
- * Registers the dc-skills MCP server in the project's .mcp.json (read by Claude Code, CLI and
- * VS Code). Existing servers are kept; set "mcp": false in dc-skills.json to opt out.
+ * Project-level MCP config files, same `{ mcpServers }` format:
+ *  - .mcp.json               → Claude Code (CLI and VS Code)
+ *  - .agents/mcp_config.json → Google Antigravity (workspace-local MCP config)
+ */
+const MCP_CONFIG_FILES = ['.mcp.json', path.join('.agents', 'mcp_config.json')];
+
+/**
+ * Registers the dc-skills MCP server in every project MCP config file. Existing servers are kept;
+ * set "mcp": false in dc-skills.json to opt out.
  */
 function ensureMcpConfig(root) {
-  const file = path.join(root, '.mcp.json');
+  for (const rel of MCP_CONFIG_FILES) ensureMcpConfigFile(path.join(root, rel));
+}
+
+function ensureMcpConfigFile(file) {
   let config = { mcpServers: {} };
   if (fs.existsSync(file)) {
     try {
@@ -200,6 +210,7 @@ function ensureMcpConfig(root) {
   // On Windows the global command is a .cmd shim, which MCP clients can only start through cmd.
   config.mcpServers['dc-skills'] =
     process.platform === 'win32' ? { command: 'cmd', args: ['/c', 'dc-skills', 'mcp'] } : { command: 'dc-skills', args: ['mcp'] };
+  fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, `${JSON.stringify(config, null, 2)}\n`);
 }
 
