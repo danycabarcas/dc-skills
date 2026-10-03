@@ -1,0 +1,9 @@
+{
+  "title": "PrimeNG",
+  "category": "frontend",
+  "requires": ["angular"],
+  "detect": {
+    "npm": ["primeng", "@primeng/themes", "@primeuix/themes", "primevue"],
+    "keywords": ["primeng", "prime ng", "primevue", "primefaces", "p-table"]
+  }
+}

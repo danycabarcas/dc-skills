@@ -61,7 +61,7 @@ Principios:
   }
 }
 ```
-- `category`: `meta | language | framework | frontend | styles | other`.
+- `category`: `meta | language | framework | frontend | styles | brand | other` (`brand` = identidad visual de un cliente).
 - `requires`: skills que se instalan junto con este (filament → laravel → php).
 - `detect.files`: archivos marcadores o extensiones (`*.vue`). +10 puntos.
 - `detect.npm` / `detect.composer`: dependencias; admite prefijo `@nestjs/*`. +15 puntos.

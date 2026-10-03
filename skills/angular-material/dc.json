@@ -1,0 +1,9 @@
+{
+  "title": "Angular Material",
+  "category": "frontend",
+  "requires": ["angular"],
+  "detect": {
+    "npm": ["@angular/material", "@angular/cdk"],
+    "keywords": ["angular material", "material design", "mat-table", "angular cdk"]
+  }
+}

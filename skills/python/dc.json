@@ -1,0 +1,9 @@
+{
+  "title": "Python",
+  "category": "language",
+  "requires": [],
+  "detect": {
+    "files": ["pyproject.toml", "requirements.txt", "uv.lock", "poetry.lock", "Pipfile", "setup.py", "manage.py", ".python-version", "*.py", "*.ipynb"],
+    "keywords": ["python", "django", "fastapi", "flask", "pandas", "polars", "jupyter", "notebook", "pytest", "celery", "etl", "scraping", "ciencia de datos", "machine learning", "automatizacion", "script"]
+  }
+}

@@ -41,7 +41,7 @@ function readSkill(skillDir, source) {
   };
 }
 
-const CATEGORY_ORDER = ['meta', 'language', 'framework', 'frontend', 'styles', 'other'];
+const CATEGORY_ORDER = ['meta', 'language', 'framework', 'frontend', 'styles', 'brand', 'other'];
 
 export function loadCatalog() {
   const byName = new Map();
