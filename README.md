@@ -76,8 +76,11 @@ dc-skills agent-start           estado del proyecto para el agente (markdown)
 dc-skills list | installed      catálogo | instalados
 dc-skills recommend "desc"      recomendación del orquestador
 dc-skills add <skills> -y       instala (con requisitos) · remove <skills> · update
-dc-skills new <nombre>          crea un skill desde plantilla
+dc-skills new <nombre> --scope x crea un skill (publico | catálogo privado | local | proyecto)
+dc-skills catalog               catálogos de skills · catalog add <ruta> --name interno
+dc-skills guard                 busca términos privados y secretos · --install-hook · --add <término>
 dc-skills request <nombre> "x"  registra un skill que falta · requests
+dc-skills import <owner/repo>   copia skills de terceros con licencia y créditos · credits
 dc-skills mem add|search|list|forget   memoria compartida (--agent, --kind, --tags, --global)
 dc-skills log "mensaje"         log de actividad
 dc-skills serve --open          dashboard local (puerto 47821, --port para cambiar)
@@ -118,11 +121,82 @@ formato), commit y push. En cada proyecto: `dc-skills self-update && dc-skills u
 Cuando un agente detecta una tecnología sin skill, la registra con `dc-skills request`; las ves en
 `dc-skills requests` y en el dashboard.
 
+## Importar skills de otros repositorios (con créditos)
+
+```sh
+dc-skills import obra/superpowers --list                 # ver skills y su licencia (rojo = no copiable)
+dc-skills import obra/superpowers systematic-debugging   # importar uno o varios
+dc-skills import anthropics/skills skill-creator --as skill-creator-anthropic   # renombrar si choca
+dc-skills import --update                                # traer la última versión de todos los importados
+dc-skills credits                                        # regenerar CREDITS.md
+```
+
+- Solo acepta licencias permisivas (MIT, Apache-2.0, BSD, ISC, Unlicense, CC0, CC-BY-4.0). Rechaza
+  los propietarios y los que no tienen licencia (sin licencia = todos los derechos reservados).
+- Cada skill importado queda con su `LICENSE` (y `NOTICE` si es Apache), un `CREDITS.md` (proyecto,
+  ruta y commit originales, autor, licencia, cambios), una nota de créditos al final del `SKILL.md`
+  y un bloque `source` en `dc.json`. El `CREDITS.md` de la raíz lista todos los de terceros.
+- Después de importar, ajusta `category` y `detect.keywords` en su `dc.json` para que el orquestador
+  lo recomiende.
+
+## Packs
+
+Grupos de skills con un propósito. `dc-skills packs` los lista con cuántos tienes instalados; el agente
+también los ve en `agent-start` y puede proponerlos.
+
+| Pack | Para qué |
+|---|---|
+| `base` | depurar con método, verificar antes de entregar, revisar calidad |
+| `planificacion` | features grandes: planes escritos y ejecución por pasos |
+| `calidad` | pruebas unitarias (TDD), E2E con Playwright, navegador, seguridad, rendimiento |
+| `arquitectura` | arquitectura, ADRs, APIs, diagramas (Mermaid, draw.io, archify), observabilidad, CI/CD |
+| `datos` | diseño de bases de datos, PostgreSQL, MySQL, SQLite, MongoDB |
+| `web-publica` | HTML accesible, diseño responsive, SEO técnico y datos estructurados |
+| `mapas` | Leaflet + JavaScript + datos espaciales |
+| `react-moderno` | React/Next.js con las guías de Vercel |
+| `gobernacion-laravel` | Laravel + Filament + marca de la Gobernación del Magdalena |
+| `ia` | servidores MCP y API de Claude |
+
+```sh
+dc-skills add --pack calidad,arquitectura --yes
+```
+Packs privados: clave `"packs"` en `~/.dc-skills/config.json` (mismo formato que `packs.json`).
+
+## Catálogos privados (lo interno no va en este repo)
+
+Este repositorio es público. Lo interno de tu equipo (herramientas, proveedores de uso interno,
+clientes confidenciales) va en un **catálogo privado**: una carpeta en un repo privado que
+`dc-skills` carga desde tu configuración local (`~/.dc-skills/config.json`, nunca versionada).
+
+```sh
+dc-skills catalog add C:\ruta\mi-equipo-internal\skills --name interno
+dc-skills new flujo-x --scope interno          # crear allí
+dc-skills catalog                              # ver catálogos y cuántos skills tiene cada uno
+```
+Al instalar un skill privado en un proyecto: se copia como cualquier otro, pero queda en
+`dc-skills.local.json` y en `.gitignore`, y no aparece en `AGENTS.md` (los agentes lo ven con
+`dc-skills agent-start` y Claude Code lo carga desde `.claude/skills`).
+
+### Guardia contra filtraciones
+```sh
+dc-skills guard --add termino1,termino2   # términos que nunca deben llegar a un repo público (config local)
+dc-skills guard --install-hook            # pre-commit: bloquea el commit si aparecen
+dc-skills guard                           # revisar el repo actual a mano
+```
+Además de los términos, detecta API keys, tokens de GitHub/AWS, JWT, llaves privadas, credenciales
+escritas en el código y archivos `.env` versionados.
+
+## Los agentes también crean y organizan skills
+El skill `skill-creator` le da al agente el criterio: si hace falta un skill o basta la memoria, de
+qué tipo, en qué catálogo, cómo estructurarlo (`references/`, `scripts/`), cómo probarlo y cuándo
+fusionar o dividir. El agente decide la forma; publicar en un catálogo compartido lo aprueba el
+usuario.
+
 ## Estructura del repo
 
 ```
 bin/dc-skills.js      entrada del CLI
-src/                  cli, detect (orquestador), install, memory (SQLite), server + dashboard.html, mcp
+src/                  cli, detect (orquestador), install, memory (SQLite), server + dashboard.html, mcp, importer, guard
 skills/<nombre>/      SKILL.md (instrucciones) + dc.json (detección y requisitos)
 templates/skill/      plantilla de skill nuevo
 test/                 npm test

@@ -1,0 +1,29 @@
+{
+  "title": "mcp-builder",
+  "category": "ai",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [
+      "@modelcontextprotocol/sdk"
+    ],
+    "composer": [],
+    "keywords": [
+      "mcp",
+      "servidor mcp",
+      "model context protocol"
+    ]
+  },
+  "source": {
+    "repo": "anthropics/skills",
+    "repoUrl": "https://github.com/anthropics/skills",
+    "path": "skills/mcp-builder",
+    "url": "https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/mcp-builder",
+    "ref": "main",
+    "commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+    "license": "Apache-2.0",
+    "authors": "Anthropic, PBC",
+    "importedAt": "2026-10-03T00:43:06.539Z",
+    "originalName": "mcp-builder"
+  }
+}

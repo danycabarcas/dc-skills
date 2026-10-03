@@ -1,0 +1,9 @@
+{
+  "title": "Leaflet (mapas)",
+  "category": "frontend",
+  "requires": [],
+  "detect": {
+    "npm": ["leaflet", "react-leaflet", "leaflet.markercluster", "@geoman-io/leaflet-geoman-free"],
+    "keywords": ["leaflet", "mapa", "mapas", "geografico", "georreferenciacion", "geojson", "coordenadas", "visor geografico", "sig", "gis", "postgis"]
+  }
+}

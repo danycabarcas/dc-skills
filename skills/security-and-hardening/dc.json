@@ -1,0 +1,29 @@
+{
+  "title": "security-and-hardening",
+  "category": "quality",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "seguridad",
+      "owasp",
+      "vulnerabilidad",
+      "hardening",
+      "autenticacion"
+    ]
+  },
+  "source": {
+    "repo": "addyosmani/agent-skills",
+    "repoUrl": "https://github.com/addyosmani/agent-skills",
+    "path": "skills/security-and-hardening",
+    "url": "https://github.com/addyosmani/agent-skills/tree/9d0c60d406b454a78ccc0a175b19932047aa4dac/skills/security-and-hardening",
+    "ref": "main",
+    "commit": "9d0c60d406b454a78ccc0a175b19932047aa4dac",
+    "license": "MIT",
+    "authors": "Addy Osmani",
+    "importedAt": "2026-10-03T00:43:11.290Z",
+    "originalName": "security-and-hardening"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "frontend-design",
+  "category": "frontend",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "diseño",
+      "interfaz",
+      "ui",
+      "landing",
+      "responsive",
+      "pagina web",
+      "dashboard"
+    ]
+  },
+  "source": {
+    "repo": "anthropics/skills",
+    "repoUrl": "https://github.com/anthropics/skills",
+    "path": "skills/frontend-design",
+    "url": "https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/frontend-design",
+    "ref": "main",
+    "commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+    "license": "Apache-2.0",
+    "authors": null,
+    "importedAt": "2026-10-03T00:43:06.514Z",
+    "originalName": "frontend-design"
+  }
+}

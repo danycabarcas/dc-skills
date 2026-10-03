@@ -1,0 +1,29 @@
+{
+  "title": "site-architecture",
+  "category": "seo",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "arquitectura del sitio",
+      "mapa del sitio",
+      "navegacion",
+      "urls",
+      "seo"
+    ]
+  },
+  "source": {
+    "repo": "coreyhaines31/marketingskills",
+    "repoUrl": "https://github.com/coreyhaines31/marketingskills",
+    "path": "skills/site-architecture",
+    "url": "https://github.com/coreyhaines31/marketingskills/tree/7350b6994610e7a4790c86325757c02454741d26/skills/site-architecture",
+    "ref": "main",
+    "commit": "7350b6994610e7a4790c86325757c02454741d26",
+    "license": "MIT",
+    "authors": "Corey Haines",
+    "importedAt": "2026-10-03T00:43:19.789Z",
+    "originalName": "site-architecture"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "title": "executing-plans",
+  "category": "workflow",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "ejecutar plan",
+      "plan de implementacion"
+    ]
+  },
+  "source": {
+    "repo": "obra/superpowers",
+    "repoUrl": "https://github.com/obra/superpowers",
+    "path": "skills/executing-plans",
+    "url": "https://github.com/obra/superpowers/tree/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/executing-plans",
+    "ref": "main",
+    "commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+    "license": "MIT",
+    "authors": "Jesse Vincent",
+    "importedAt": "2026-10-03T00:43:09.501Z",
+    "originalName": "executing-plans"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "title": "ci-cd-and-automation",
+  "category": "architecture",
+  "requires": [],
+  "detect": {
+    "files": [
+      ".github/workflows/",
+      ".gitlab-ci.yml"
+    ],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "ci",
+      "cd",
+      "despliegue",
+      "pipeline",
+      "github actions",
+      "deploy"
+    ]
+  },
+  "source": {
+    "repo": "addyosmani/agent-skills",
+    "repoUrl": "https://github.com/addyosmani/agent-skills",
+    "path": "skills/ci-cd-and-automation",
+    "url": "https://github.com/addyosmani/agent-skills/tree/9d0c60d406b454a78ccc0a175b19932047aa4dac/skills/ci-cd-and-automation",
+    "ref": "main",
+    "commit": "9d0c60d406b454a78ccc0a175b19932047aa4dac",
+    "license": "MIT",
+    "authors": "Addy Osmani",
+    "importedAt": "2026-10-03T00:43:11.366Z",
+    "originalName": "ci-cd-and-automation"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "title": "test-driven-development",
+  "category": "quality",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "tdd",
+      "pruebas unitarias",
+      "tests",
+      "testing",
+      "pruebas"
+    ]
+  },
+  "source": {
+    "repo": "obra/superpowers",
+    "repoUrl": "https://github.com/obra/superpowers",
+    "path": "skills/test-driven-development",
+    "url": "https://github.com/obra/superpowers/tree/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/test-driven-development",
+    "ref": "main",
+    "commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+    "license": "MIT",
+    "authors": "Jesse Vincent",
+    "importedAt": "2026-10-03T00:43:09.473Z",
+    "originalName": "test-driven-development"
+  }
+}

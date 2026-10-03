@@ -1,0 +1,28 @@
+{
+  "title": "code-review-and-quality",
+  "category": "quality",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "revision de codigo",
+      "code review",
+      "calidad",
+      "refactor"
+    ]
+  },
+  "source": {
+    "repo": "addyosmani/agent-skills",
+    "repoUrl": "https://github.com/addyosmani/agent-skills",
+    "path": "skills/code-review-and-quality",
+    "url": "https://github.com/addyosmani/agent-skills/tree/9d0c60d406b454a78ccc0a175b19932047aa4dac/skills/code-review-and-quality",
+    "ref": "main",
+    "commit": "9d0c60d406b454a78ccc0a175b19932047aa4dac",
+    "license": "MIT",
+    "authors": "Addy Osmani",
+    "importedAt": "2026-10-03T00:43:11.320Z",
+    "originalName": "code-review-and-quality"
+  }
+}

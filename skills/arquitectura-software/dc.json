@@ -1,0 +1,9 @@
+{
+  "title": "Arquitectura de software",
+  "category": "architecture",
+  "requires": [],
+  "detect": {
+    "files": ["docs/arquitectura/", "docs/adr/", "docs/architecture/"],
+    "keywords": ["arquitectura", "arquitectura de software", "microservicios", "monolito", "hexagonal", "c4", "adr", "integracion", "interoperabilidad", "escalabilidad", "diseño del sistema"]
+  }
+}

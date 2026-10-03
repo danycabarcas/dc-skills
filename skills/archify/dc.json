@@ -1,0 +1,33 @@
+{
+  "title": "archify",
+  "category": "architecture",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "diagrama de arquitectura",
+      "diagrama",
+      "diagramas",
+      "flujo de datos",
+      "diagrama de secuencia"
+    ]
+  },
+  "source": {
+    "repo": "tt-a1i/archify",
+    "repoUrl": "https://github.com/tt-a1i/archify",
+    "path": "archify",
+    "url": "https://github.com/tt-a1i/archify/tree/d5a1333d7447c866a765adac7d4d062f2f02e4d2/archify",
+    "ref": "main",
+    "commit": "d5a1333d7447c866a765adac7d4d062f2f02e4d2",
+    "license": "MIT",
+    "authors": "tt-a1i (Archify)",
+    "importedAt": "2026-10-03T00:44:54.915Z",
+    "exclude": [
+      "test/",
+      "examples/*.html"
+    ],
+    "originalName": "archify"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "claude-api",
+  "category": "ai",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [
+      "@anthropic-ai/sdk"
+    ],
+    "composer": [],
+    "keywords": [
+      "claude",
+      "anthropic",
+      "api de claude",
+      "llm",
+      "inteligencia artificial"
+    ]
+  },
+  "source": {
+    "repo": "anthropics/skills",
+    "repoUrl": "https://github.com/anthropics/skills",
+    "path": "skills/claude-api",
+    "url": "https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/claude-api",
+    "ref": "main",
+    "commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+    "license": "Apache-2.0",
+    "authors": "Anthropic, PBC",
+    "importedAt": "2026-10-03T00:43:06.555Z",
+    "originalName": "claude-api"
+  }
+}

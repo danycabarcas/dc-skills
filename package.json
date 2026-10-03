@@ -11,7 +11,8 @@
     "bin",
     "src",
     "skills",
-    "templates"
+    "templates",
+    "packs.json"
   ],
   "engines": {
     "node": ">=22.13"

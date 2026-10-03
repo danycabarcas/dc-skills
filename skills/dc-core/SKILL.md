@@ -51,12 +51,19 @@ código o en git, ni secretos (tokens, contraseñas, .env).
 - Mensajes en imperativo y en inglés: `feat: add invoice export`, `fix: ...`, `refactor: ...`.
 - Nunca `--force`, `reset --hard` ni borrar ramas sin confirmación.
 
-## 5. Falta un skill
-Si el proyecto usa una tecnología sin skill (Vue, Python, Docker...):
-1. `dc-skills request <nombre> "<motivo>"` y avísale al usuario.
-2. Si el usuario quiere, créalo: `dc-skills new <nombre>` y complétalo siguiendo el skill
-   `skill-creator`.
+## 5. Skills: crear, mejorar, organizar
+Tienes autonomía para mejorar el sistema de skills, siguiendo el skill `skill-creator`:
+- Si falta un skill, uno se queda corto o dos se pisan, **decide tú** el tipo, la estructura y el
+  alcance (`--scope proyecto|local|interno|publico`) y propónselo al usuario en una frase.
+- Puedes crear y editar libremente en `proyecto` y `local`. Para `interno` o `publico` (catálogos
+  compartidos) pide aprobación antes de escribir y antes de commit.
+- Si no es momento de crearlo: `dc-skills request <nombre> "<motivo>"`.
 
-## 6. Entrega
+## 6. Información privada
+Lo interno de DAYTECHCO (herramientas, proveedores de uso interno, datos de clientes) nunca va a un
+repositorio público ni a un skill del catálogo `publico`. Antes de commit en repos públicos corre
+`dc-skills guard`; si lo bloquea, no lo saltes.
+
+## 7. Entrega
 Al terminar, resume en pocas líneas: qué cambió, cómo se verificó, qué quedó pendiente
 (y guárdalo como `todo` si aplica).

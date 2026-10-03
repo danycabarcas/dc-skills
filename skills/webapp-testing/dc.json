@@ -1,0 +1,32 @@
+{
+  "title": "webapp-testing",
+  "category": "quality",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [
+      "@playwright/test",
+      "playwright"
+    ],
+    "composer": [],
+    "keywords": [
+      "playwright",
+      "e2e",
+      "pruebas end to end",
+      "pruebas de interfaz",
+      "qa"
+    ]
+  },
+  "source": {
+    "repo": "anthropics/skills",
+    "repoUrl": "https://github.com/anthropics/skills",
+    "path": "skills/webapp-testing",
+    "url": "https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/webapp-testing",
+    "ref": "main",
+    "commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+    "license": "Apache-2.0",
+    "authors": "Anthropic, PBC",
+    "importedAt": "2026-10-03T00:43:06.527Z",
+    "originalName": "webapp-testing"
+  }
+}

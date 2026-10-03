@@ -1,0 +1,29 @@
+{
+  "title": "observability-and-instrumentation",
+  "category": "architecture",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "logs",
+      "monitoreo",
+      "metricas",
+      "observabilidad",
+      "alertas"
+    ]
+  },
+  "source": {
+    "repo": "addyosmani/agent-skills",
+    "repoUrl": "https://github.com/addyosmani/agent-skills",
+    "path": "skills/observability-and-instrumentation",
+    "url": "https://github.com/addyosmani/agent-skills/tree/9d0c60d406b454a78ccc0a175b19932047aa4dac/skills/observability-and-instrumentation",
+    "ref": "main",
+    "commit": "9d0c60d406b454a78ccc0a175b19932047aa4dac",
+    "license": "MIT",
+    "authors": "Addy Osmani",
+    "importedAt": "2026-10-03T00:43:11.410Z",
+    "originalName": "observability-and-instrumentation"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Bases de datos",
+  "category": "database",
+  "requires": [],
+  "detect": {
+    "files": ["*.sql", "*.sqlite", "*.db", "database/migrations/", "migrations/", "prisma/schema.prisma", "alembic.ini"],
+    "composer": ["doctrine/dbal"],
+    "npm": ["pg", "mysql2", "better-sqlite3", "mongodb", "mongoose", "prisma", "@prisma/client", "typeorm", "drizzle-orm", "knex", "sequelize"],
+    "keywords": ["base de datos", "bases de datos", "postgres", "postgresql", "mysql", "mariadb", "sqlite", "mongodb", "mongo", "sql", "migraciones", "indices", "consultas lentas", "modelo entidad relacion"]
+  }
+}

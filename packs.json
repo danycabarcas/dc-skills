@@ -1,0 +1,43 @@
+{
+  "$comment": "Grupos de skills para instalar juntos: dc-skills add --pack <nombre>. Packs privados: \"packs\" en ~/.dc-skills/config.json.",
+  "base": {
+    "description": "Forma de trabajar para cualquier proyecto: depurar con método, verificar antes de entregar, revisar calidad",
+    "skills": ["dc-core", "systematic-debugging", "verification-before-completion", "code-review-and-quality"]
+  },
+  "planificacion": {
+    "description": "Features grandes: planes escritos, ejecución por pasos y verificación",
+    "skills": ["writing-plans", "executing-plans", "verification-before-completion"]
+  },
+  "calidad": {
+    "description": "Pruebas unitarias (TDD), pruebas E2E con Playwright, pruebas en navegador, seguridad y rendimiento",
+    "skills": ["test-driven-development", "webapp-testing", "browser-testing-with-devtools", "security-and-hardening", "performance-optimization", "code-review-and-quality"]
+  },
+  "arquitectura": {
+    "description": "Diseño y documentación: arquitectura, ADRs, APIs, diagramas (Mermaid, draw.io, archify), observabilidad, CI/CD",
+    "skills": ["arquitectura-software", "documentation-and-adrs", "api-and-interface-design", "mermaid", "drawio", "archify", "observability-and-instrumentation", "ci-cd-and-automation"]
+  },
+  "datos": {
+    "description": "Bases de datos: diseño, índices, migraciones, PostgreSQL, MySQL, SQLite y MongoDB",
+    "skills": ["bases-de-datos", "supabase-postgres-best-practices", "mongodb-schema-design", "mongodb-query-optimizer", "mongodb-connection", "mermaid"]
+  },
+  "web-publica": {
+    "description": "Sitios públicos: HTML accesible, diseño responsive, SEO técnico, datos estructurados y rendimiento",
+    "skills": ["html", "css", "frontend-design", "seo-audit", "seo-schema", "site-architecture", "performance-optimization", "browser-testing-with-devtools"]
+  },
+  "mapas": {
+    "description": "Visores geográficos con Leaflet y datos espaciales en la base de datos",
+    "skills": ["leaflet", "javascript", "bases-de-datos"]
+  },
+  "react-moderno": {
+    "description": "React y Next.js con las guías de rendimiento y composición de Vercel",
+    "skills": ["react", "vercel-react-best-practices", "vercel-composition-patterns"]
+  },
+  "gobernacion-laravel": {
+    "description": "Sistemas de la Gobernación del Magdalena en Laravel + Filament con su identidad visual",
+    "skills": ["laravel", "filament", "tailwind", "marca-magdalena", "bases-de-datos", "security-and-hardening", "test-driven-development"]
+  },
+  "ia": {
+    "description": "Construir integraciones con IA: servidores MCP y la API de Claude",
+    "skills": ["mcp-builder", "claude-api"]
+  }
+}

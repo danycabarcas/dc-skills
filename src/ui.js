@@ -54,7 +54,7 @@ export async function multiSelect(items, preselected = []) {
   return [...new Set(picked)];
 }
 
-const BOOLEAN_FLAGS = new Set(['yes', 'json', 'open', 'global', 'all', 'help', 'force', 'quiet']);
+const BOOLEAN_FLAGS = new Set(['yes', 'json', 'open', 'global', 'all', 'help', 'force', 'quiet', 'list', 'update', 'allow-any-license', 'install-hook', 'staged']);
 
 /** `a b --port 1 --yes -y` → { _: ['a','b'], port: '1', yes: true } */
 export function parseArgs(argv) {

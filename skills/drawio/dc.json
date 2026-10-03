@@ -1,0 +1,30 @@
+{
+  "title": "drawio",
+  "category": "architecture",
+  "requires": [],
+  "detect": {
+    "files": [
+      "*.drawio"
+    ],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "drawio",
+      "draw.io",
+      "diagrama editable",
+      "diagramas"
+    ]
+  },
+  "source": {
+    "repo": "Agents365-ai/drawio-skill",
+    "repoUrl": "https://github.com/Agents365-ai/drawio-skill",
+    "path": "skills/drawio-skill",
+    "url": "https://github.com/Agents365-ai/drawio-skill/tree/88fd9236bc532aac4c25cb008a8bd59bc650b904/skills/drawio-skill",
+    "ref": "main",
+    "commit": "88fd9236bc532aac4c25cb008a8bd59bc650b904",
+    "license": "MIT",
+    "authors": "Agents365-ai",
+    "importedAt": "2026-10-03T00:43:17.145Z",
+    "originalName": "drawio-skill"
+  }
+}

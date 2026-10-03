@@ -2,7 +2,7 @@
 // (`dc-skills agent-start` and the MCP tool `skills_status` print the same thing).
 import path from 'node:path';
 import { projectId } from './paths.js';
-import { loadCatalog } from './skills.js';
+import { loadCatalog, loadPacks } from './skills.js';
 import { scanProject, recommend } from './detect.js';
 import { readManifest, hasManifest } from './install.js';
 import { recentMemories, listSkillRequests } from './memory.js';
@@ -41,6 +41,16 @@ export function buildStatus(root, { description = '', memoryLimit = 10 } = {}) {
     out.push(manifest.skills.length ? '## Sugeridos adicionales (detectados)' : '## Recomendación del orquestador', '');
     for (const r of ranked) out.push(`- **${r.skill.name}** (puntaje ${r.score}): ${r.reasons.join(', ')}`);
     out.push('');
+  }
+
+  const packs = Object.entries(loadPacks()).filter(([, p]) => p.skills.some((s) => !manifest.skills.includes(s)));
+  if (packs.length) {
+    out.push('## Packs disponibles (instalar con `dc-skills add --pack <nombre> --yes`)', '');
+    for (const [name, p] of packs) {
+      const have = p.skills.filter((s) => manifest.skills.includes(s)).length;
+      out.push(`- **${name}** — ${p.description} (${have}/${p.skills.length} instalados)`);
+    }
+    out.push('', 'Propón al usuario los packs que encajen con lo que va a hacer (p. ej. `calidad` antes de una entrega, `arquitectura` al diseñar).', '');
   }
 
   if (!manifest.skills.length) {

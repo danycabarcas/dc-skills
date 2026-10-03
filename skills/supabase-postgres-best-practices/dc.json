@@ -1,0 +1,32 @@
+{
+  "title": "supabase-postgres-best-practices",
+  "category": "database",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [
+      "pg",
+      "@supabase/supabase-js",
+      "postgres"
+    ],
+    "composer": [],
+    "keywords": [
+      "postgres",
+      "postgresql",
+      "supabase",
+      "rls"
+    ]
+  },
+  "source": {
+    "repo": "supabase/agent-skills",
+    "repoUrl": "https://github.com/supabase/agent-skills",
+    "path": "skills/supabase-postgres-best-practices",
+    "url": "https://github.com/supabase/agent-skills/tree/c9be0e931b7930f7d02126d04774d904c381e7d7/skills/supabase-postgres-best-practices",
+    "ref": "main",
+    "commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+    "license": "MIT",
+    "authors": "Supabase",
+    "importedAt": "2026-10-03T00:43:12.637Z",
+    "originalName": "supabase-postgres-best-practices"
+  }
+}

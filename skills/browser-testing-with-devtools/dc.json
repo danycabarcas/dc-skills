@@ -1,0 +1,29 @@
+{
+  "title": "browser-testing-with-devtools",
+  "category": "quality",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "devtools",
+      "navegador",
+      "pruebas en navegador",
+      "qa",
+      "responsive"
+    ]
+  },
+  "source": {
+    "repo": "addyosmani/agent-skills",
+    "repoUrl": "https://github.com/addyosmani/agent-skills",
+    "path": "skills/browser-testing-with-devtools",
+    "url": "https://github.com/addyosmani/agent-skills/tree/9d0c60d406b454a78ccc0a175b19932047aa4dac/skills/browser-testing-with-devtools",
+    "ref": "main",
+    "commit": "9d0c60d406b454a78ccc0a175b19932047aa4dac",
+    "license": "MIT",
+    "authors": "Addy Osmani",
+    "importedAt": "2026-10-03T00:43:11.383Z",
+    "originalName": "browser-testing-with-devtools"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "title": "JavaScript (navegador)",
+  "category": "language",
+  "requires": [],
+  "detect": {
+    "files": ["*.js", "*.mjs", "resources/js/", "public/js/"],
+    "npm": ["alpinejs", "jquery", "vite"],
+    "keywords": ["javascript", "js", "vanilla", "dom", "fetch", "alpine", "jquery", "frontend"]
+  }
+}

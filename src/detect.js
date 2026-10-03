@@ -7,6 +7,7 @@
 //   then every `requires` of a matched skill is added, and `always` skills last.
 import fs from 'node:fs';
 import path from 'node:path';
+import { readJsonFile } from './paths.js';
 
 const IGNORED_DIRS = new Set([
   'node_modules', 'vendor', '.git', 'storage', 'dist', 'build', 'out', '.next', '.nuxt',
@@ -17,7 +18,7 @@ const SCORE = { dependency: 15, file: 10, keyword: 10, required: 5, always: 1 };
 
 function readJson(file) {
   try {
-    return JSON.parse(fs.readFileSync(file, 'utf8'));
+    return readJsonFile(file);
   } catch {
     return null;
   }

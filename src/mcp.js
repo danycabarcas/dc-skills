@@ -3,7 +3,7 @@
 // for the shared memory and the skills catalog of the project it was launched in.
 import readline from 'node:readline';
 import { PKG } from './paths.js';
-import { loadCatalog } from './skills.js';
+import { loadCatalog, skillsFromPacks } from './skills.js';
 import { scanProject, recommend } from './detect.js';
 import { installSkills } from './install.js';
 import { buildStatus } from './report.js';
@@ -22,8 +22,8 @@ const TOOLS = [
   },
   {
     name: 'skills_install',
-    description: 'Instala skills en el proyecto (con sus requisitos). Usar solo después de que el usuario confirme cuáles.',
-    inputSchema: { type: 'object', properties: { skills: { type: 'array', items: { type: 'string' } } }, required: ['skills'] },
+    description: 'Instala skills y/o packs en el proyecto (con sus requisitos). Usar solo después de que el usuario confirme cuáles.',
+    inputSchema: { type: 'object', properties: { skills: { type: 'array', items: { type: 'string' } }, packs: { type: 'array', items: { type: 'string' } } } },
   },
   {
     name: 'skill_request',
@@ -84,7 +84,9 @@ export function runMcp(ctx) {
         return ranked.map((r) => `${r.skill.name} (${r.score}): ${r.reasons.join(', ')}`).join('\n') || '(sin coincidencias)';
       }
       case 'skills_install': {
-        const installed = installSkills(ctx.root, args.skills.map((s) => s.toLowerCase()), loadCatalog());
+        const names = [...(args.skills || []).map((s) => s.toLowerCase()), ...skillsFromPacks(args.packs || [])];
+        if (!names.length) throw new Error('Indica skills o packs.');
+        const installed = installSkills(ctx.root, names, loadCatalog());
         mem.logEvent({ ...base, agent, type: 'install', message: `Skills instalados: ${installed.join(', ')}` });
         return `Instalados: ${installed.join(', ')}. Lee sus SKILL.md en .agents/skills/<nombre>/SKILL.md`;
       }
@@ -142,7 +144,8 @@ export function runMcp(ctx) {
   };
 
   const rl = readline.createInterface({ input: process.stdin });
-  rl.on('line', (line) => {
+  rl.on('line', (raw) => {
+    const line = raw.replace(/^\uFEFF/, ''); // PowerShell pipes may prefix a BOM
     if (!line.trim()) return;
     let msg;
     try {

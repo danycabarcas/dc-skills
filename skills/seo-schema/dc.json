@@ -1,0 +1,29 @@
+{
+  "title": "seo-schema",
+  "category": "seo",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "schema",
+      "datos estructurados",
+      "json-ld",
+      "rich results",
+      "seo"
+    ]
+  },
+  "source": {
+    "repo": "coreyhaines31/marketingskills",
+    "repoUrl": "https://github.com/coreyhaines31/marketingskills",
+    "path": "skills/schema",
+    "url": "https://github.com/coreyhaines31/marketingskills/tree/7350b6994610e7a4790c86325757c02454741d26/skills/schema",
+    "ref": "main",
+    "commit": "7350b6994610e7a4790c86325757c02454741d26",
+    "license": "MIT",
+    "authors": "Corey Haines",
+    "importedAt": "2026-10-03T00:43:20.991Z",
+    "originalName": "schema"
+  }
+}

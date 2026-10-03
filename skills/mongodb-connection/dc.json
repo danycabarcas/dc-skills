@@ -1,0 +1,29 @@
+{
+  "title": "mongodb-connection",
+  "category": "database",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [
+      "mongodb",
+      "mongoose"
+    ],
+    "composer": [],
+    "keywords": [
+      "mongodb",
+      "conexion mongo"
+    ]
+  },
+  "source": {
+    "repo": "mongodb/agent-skills",
+    "repoUrl": "https://github.com/mongodb/agent-skills",
+    "path": "skills/mongodb-connection",
+    "url": "https://github.com/mongodb/agent-skills/tree/18b014ee53f5e8a824942cc6b0ced37f921e7b3c/skills/mongodb-connection",
+    "ref": "main",
+    "commit": "18b014ee53f5e8a824942cc6b0ced37f921e7b3c",
+    "license": "Apache-2.0",
+    "authors": null,
+    "importedAt": "2026-10-03T00:43:13.695Z",
+    "originalName": "mongodb-connection"
+  }
+}
