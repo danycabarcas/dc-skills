@@ -1,0 +1,27 @@
+{
+  "title": "dataviz-critique",
+  "category": "quality",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "revisar grafico",
+      "critica de graficos",
+      "mejorar grafico"
+    ]
+  },
+  "source": {
+    "repo": "skthewimp/karthik-data-visualization-skill",
+    "repoUrl": "https://github.com/skthewimp/karthik-data-visualization-skill",
+    "path": "dataviz-critique/claude",
+    "url": "https://github.com/skthewimp/karthik-data-visualization-skill/tree/9c871aa853d2298d65ae808cd1093218ad4bd3b4/dataviz-critique/claude",
+    "ref": "main",
+    "commit": "9c871aa853d2298d65ae808cd1093218ad4bd3b4",
+    "license": "MIT",
+    "authors": "Karthik S",
+    "importedAt": "2026-10-03T00:58:15.987Z",
+    "originalName": "dataviz-critique"
+  }
+}

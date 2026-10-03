@@ -1,0 +1,27 @@
+{
+  "title": "dataviz-precision",
+  "category": "frontend",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "decimales",
+      "precision",
+      "formato de numeros"
+    ]
+  },
+  "source": {
+    "repo": "skthewimp/karthik-data-visualization-skill",
+    "repoUrl": "https://github.com/skthewimp/karthik-data-visualization-skill",
+    "path": "dataviz-precision/claude",
+    "url": "https://github.com/skthewimp/karthik-data-visualization-skill/tree/9c871aa853d2298d65ae808cd1093218ad4bd3b4/dataviz-precision/claude",
+    "ref": "main",
+    "commit": "9c871aa853d2298d65ae808cd1093218ad4bd3b4",
+    "license": "MIT",
+    "authors": "Karthik S",
+    "importedAt": "2026-10-03T00:58:32.101Z",
+    "originalName": "dataviz-precision"
+  }
+}

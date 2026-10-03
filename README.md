@@ -152,6 +152,7 @@ también los ve en `agent-start` y puede proponerlos.
 | `arquitectura` | arquitectura, ADRs, APIs, diagramas (Mermaid, draw.io, archify), observabilidad, CI/CD |
 | `datos` | diseño de bases de datos, PostgreSQL, MySQL, SQLite, MongoDB |
 | `web-publica` | HTML accesible, diseño responsive, SEO técnico y datos estructurados |
+| `dashboards` | dashboards y gráficos con librerías libres, KPIs, color, validación de datos |
 | `mapas` | Leaflet + JavaScript + datos espaciales |
 | `react-moderno` | React/Next.js con las guías de Vercel |
 | `gobernacion-laravel` | Laravel + Filament + marca de la Gobernación del Magdalena |

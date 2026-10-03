@@ -1,0 +1,29 @@
+{
+  "title": "data-visualization",
+  "category": "quality",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "matplotlib",
+      "seaborn",
+      "plotly",
+      "graficos python",
+      "visualizacion"
+    ]
+  },
+  "source": {
+    "repo": "anthropics/knowledge-work-plugins",
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "path": "data/skills/data-visualization",
+    "url": "https://github.com/anthropics/knowledge-work-plugins/tree/8444efcd48f7012f09797778a36a33e73d0861f4/data/skills/data-visualization",
+    "ref": "main",
+    "commit": "8444efcd48f7012f09797778a36a33e73d0861f4",
+    "license": "Apache-2.0",
+    "authors": null,
+    "importedAt": "2026-10-03T00:58:14.839Z",
+    "originalName": "data-visualization"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Dashboards y gráficos",
+  "category": "frontend",
+  "requires": [],
+  "detect": {
+    "composer": ["leandrocfe/filament-apex-charts"],
+    "npm": ["echarts", "chart.js", "recharts", "@tremor/react", "ag-charts-community", "ag-grid-community", "d3", "uplot", "plotly.js", "ngx-echarts", "echarts-for-react", "apexcharts", "highcharts"],
+    "keywords": ["dashboard", "dashboards", "tablero", "tablero de control", "kpi", "kpis", "indicadores", "grafico", "graficos", "graficas", "estadisticas", "reportes", "visualizacion de datos", "echarts", "chart.js", "bi"]
+  }
+}

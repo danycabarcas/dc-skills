@@ -1,0 +1,28 @@
+{
+  "title": "build-dashboard",
+  "category": "frontend",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "dashboard html",
+      "reporte html",
+      "dashboard autocontenido",
+      "kpi"
+    ]
+  },
+  "source": {
+    "repo": "anthropics/knowledge-work-plugins",
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "path": "data/skills/build-dashboard",
+    "url": "https://github.com/anthropics/knowledge-work-plugins/tree/8444efcd48f7012f09797778a36a33e73d0861f4/data/skills/build-dashboard",
+    "ref": "main",
+    "commit": "8444efcd48f7012f09797778a36a33e73d0861f4",
+    "license": "Apache-2.0",
+    "authors": null,
+    "importedAt": "2026-10-03T00:58:14.816Z",
+    "originalName": "build-dashboard"
+  }
+}

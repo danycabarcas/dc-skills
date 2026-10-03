@@ -1,0 +1,28 @@
+{
+  "title": "validate-data",
+  "category": "quality",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "validar analisis",
+      "validar datos",
+      "verificar cifras",
+      "reporte"
+    ]
+  },
+  "source": {
+    "repo": "anthropics/knowledge-work-plugins",
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "path": "data/skills/validate-data",
+    "url": "https://github.com/anthropics/knowledge-work-plugins/tree/8444efcd48f7012f09797778a36a33e73d0861f4/data/skills/validate-data",
+    "ref": "main",
+    "commit": "8444efcd48f7012f09797778a36a33e73d0861f4",
+    "license": "Apache-2.0",
+    "authors": null,
+    "importedAt": "2026-10-03T00:58:14.876Z",
+    "originalName": "validate-data"
+  }
+}

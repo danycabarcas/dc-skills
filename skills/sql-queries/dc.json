@@ -1,0 +1,28 @@
+{
+  "title": "sql-queries",
+  "category": "database",
+  "requires": [],
+  "detect": {
+    "files": [],
+    "npm": [],
+    "composer": [],
+    "keywords": [
+      "sql",
+      "consultas",
+      "query",
+      "reportes sql"
+    ]
+  },
+  "source": {
+    "repo": "anthropics/knowledge-work-plugins",
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "path": "data/skills/sql-queries",
+    "url": "https://github.com/anthropics/knowledge-work-plugins/tree/8444efcd48f7012f09797778a36a33e73d0861f4/data/skills/sql-queries",
+    "ref": "main",
+    "commit": "8444efcd48f7012f09797778a36a33e73d0861f4",
+    "license": "Apache-2.0",
+    "authors": null,
+    "importedAt": "2026-10-03T00:58:14.897Z",
+    "originalName": "sql-queries"
+  }
+}
