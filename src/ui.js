@@ -67,7 +67,8 @@ export function parseArgs(argv) {
       const [key, inline] = arg.slice(2).split(/=(.*)/s);
       if (inline !== undefined) flags[key] = inline;
       else if (BOOLEAN_FLAGS.has(key) || argv[i + 1] === undefined || argv[i + 1].startsWith('--')) flags[key] = true;
-      else flags[key] = argv[++i];
+      // Repeated value flags accumulate as a comma list: --pack a --pack b → 'a,b'
+      else flags[key] = typeof flags[key] === 'string' ? `${flags[key]},${argv[++i]}` : argv[++i];
     } else flags._.push(arg);
   }
   return flags;

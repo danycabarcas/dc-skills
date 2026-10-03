@@ -1,11 +1,13 @@
 // Minimal MCP server over stdio (newline-delimited JSON-RPC 2.0), no SDK needed.
 // Gives any MCP-capable agent (tested with Claude Code) native tools
 // for the shared memory and the skills catalog of the project it was launched in.
+import path from 'node:path';
 import readline from 'node:readline';
-import { PKG } from './paths.js';
+import { fileURLToPath } from 'node:url';
+import { PKG, projectId } from './paths.js';
 import { loadCatalog, skillsFromPacks } from './skills.js';
 import { scanProject, recommend } from './detect.js';
-import { installSkills } from './install.js';
+import { findProjectRoot, installSkills } from './install.js';
 import { buildStatus } from './report.js';
 import * as mem from './memory.js';
 
@@ -73,7 +75,8 @@ const format = (rows) =>
 export function runMcp(ctx) {
   let agent = ctx.agent;
   const send = (message) => process.stdout.write(`${JSON.stringify(message)}\n`);
-  const base = { project: ctx.id, projectName: ctx.name };
+  // The project can change after `roots/list` (see below), so read it on every use.
+  const base = () => ({ project: ctx.id, projectName: ctx.name });
 
   const call = (name, args = {}) => {
     switch (name) {
@@ -87,7 +90,7 @@ export function runMcp(ctx) {
         const names = [...(args.skills || []).map((s) => s.toLowerCase()), ...skillsFromPacks(args.packs || [])];
         if (!names.length) throw new Error('Indica skills o packs.');
         const installed = installSkills(ctx.root, names, loadCatalog());
-        mem.logEvent({ ...base, agent, type: 'install', message: `Skills instalados: ${installed.join(', ')}` });
+        mem.logEvent({ ...base(), agent, type: 'install', message: `Skills instalados: ${installed.join(', ')}` });
         return `Instalados: ${installed.join(', ')}. Lee sus SKILL.md en .agents/skills/<nombre>/SKILL.md`;
       }
       case 'skill_request':
@@ -108,26 +111,54 @@ export function runMcp(ctx) {
       case 'memory_recent':
         return format(mem.recentMemories({ project: ctx.id, limit: args.limit || 20 }));
       case 'log_event':
-        mem.logEvent({ ...base, agent, type: args.type || 'log', message: args.message });
+        mem.logEvent({ ...base(), agent, type: args.type || 'log', message: args.message });
         return 'Registrado.';
       default:
         throw new Error(`Herramienta desconocida: ${name}`);
     }
   };
 
+  let clientCaps = {};
+  let started = false;
+  const startSession = () => {
+    if (started) return;
+    started = true;
+    mem.logEvent({ ...base(), agent, type: 'session_start', message: `Sesión MCP iniciada (${agent})` });
+  };
+  // MCP "roots": ask the client which folder is open and use it as the project.
+  const ROOTS_ID = 'dc-skills-roots';
+  const requestRoots = () => send({ jsonrpc: '2.0', id: ROOTS_ID, method: 'roots/list' });
+  const applyRoots = (roots = []) => {
+    const uri = roots.find((r) => String(r.uri).startsWith('file:'))?.uri;
+    if (uri) {
+      const dir = findProjectRoot(fileURLToPath(uri));
+      ctx.root = dir;
+      ctx.name = path.basename(dir);
+      ctx.id = projectId(dir);
+    }
+    startSession();
+  };
+
   const handle = (msg) => {
     const { id, method, params = {} } = msg;
+    if (id === ROOTS_ID && !method) return applyRoots(msg.result?.roots); // our roots/list answered (or failed)
     const reply = (result) => id !== undefined && send({ jsonrpc: '2.0', id, result });
     switch (method) {
       case 'initialize':
         if (agent === 'unknown' && params.clientInfo?.name) agent = params.clientInfo.name;
-        mem.logEvent({ ...base, agent, type: 'session_start', message: `Sesión MCP iniciada (${agent})` });
+        clientCaps = params.capabilities || {};
         return reply({
           protocolVersion: params.protocolVersion || '2025-06-18',
           capabilities: { tools: {} },
           serverInfo: { name: 'dc-skills', version: PKG.version },
           instructions: 'Llama skills_status al iniciar. Lee los SKILL.md indicados antes de escribir código. Guarda decisiones con memory_add y busca con memory_search antes de resolver problemas.',
         });
+      case 'notifications/initialized':
+        if (clientCaps.roots) requestRoots();
+        else startSession();
+        return;
+      case 'notifications/roots/list_changed':
+        return requestRoots();
       case 'ping':
         return reply({});
       case 'tools/list':

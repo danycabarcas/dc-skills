@@ -120,3 +120,7 @@ test('guard ignores documentation placeholders', async () => {
   const fakeSecret = ['Rq8!zP2', '#mK9$wL4v'].join('');
   assert.equal(scanText('password = "' + fakeSecret + '"').length, 1);
 });
+
+test('parseArgs accumulates repeated value flags', () => {
+  assert.deepEqual(parseArgs(['add', '--pack', 'base', '--pack', 'react-moderno', 'laravel']), { _: ['add', 'laravel'], pack: 'base,react-moderno' });
+});
