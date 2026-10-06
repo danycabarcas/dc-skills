@@ -1,9 +1,30 @@
 {
-  "title": "Marca Gobernación del Magdalena",
+  "title": "Marca Gobernación del Magdalena (cualquier tecnología)",
   "category": "brand",
   "requires": [],
   "detect": {
-    "files": ["magdalena.css", "magdalena.min.css", "magdalena-tokens.css", "magdalena.tailwind-v4.css", "magdalena.tailwind.preset.cjs"],
-    "keywords": ["gobernacion", "gobernacion del magdalena", "magdalena", "marca magdalena", "manual de marca", "imagen corporativa", "imagen institucional", "identidad visual"]
+    "files": [
+      "magdalena.css",
+      "magdalena.min.css",
+      "magdalena-tokens.css",
+      "magdalena.tailwind-v4.css",
+      "magdalena.tailwind.preset.cjs"
+    ],
+    "keywords": [
+      "gobernacion",
+      "gobernacion del magdalena",
+      "magdalena",
+      "marca magdalena",
+      "manual de marca",
+      "imagen corporativa",
+      "imagen institucional",
+      "identidad visual",
+      "colores institucionales",
+      "logo gobernacion",
+      "manual de identidad",
+      "montserrat",
+      "magdalena.gov.co",
+      "paleta institucional"
+    ]
   }
 }
